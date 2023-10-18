@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="173dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="181dp"
+        android:text="New Product Form"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="30sp"/>
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="374dp"
+        android:layout_height="278dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="73dp">
+
+            <TextView
+                android:padding="3dip"
+                android:text="Code" />
+
+            <EditText
+
+                android:id="@+id/code"
+                android:layout_width="283dp"
+                android:layout_height="73dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Code"
+                tools:layout_editor_absoluteX="95dp"
+                tools:layout_editor_absoluteY="298dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:padding="3dip"
+                android:text="Name" />
+
+            <EditText
+
+                android:id="@+id/name"
+                android:layout_width="283dp"
+                android:layout_height="73dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Name"
+                tools:layout_editor_absoluteX="95dp"
+                tools:layout_editor_absoluteY="298dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:padding="3dip"
+                android:text="Price" />
+
+            <EditText
+
+                android:id="@+id/price"
+                android:layout_width="283dp"
+                android:layout_height="73dp"
+                android:ems="10"
+                android:inputType="text"
+                android:text="Price"
+                tools:layout_editor_absoluteX="95dp"
+                tools:layout_editor_absoluteY="298dp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add product"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="298dp" />
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cancel"
+                tools:layout_editor_absoluteX="37dp"
+                tools:layout_editor_absoluteY="298dp" />
+        </TableRow>
+
+
+    </TableLayout>
+
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="175dp"
+        android:text="Show products"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="389dp"
+        android:layout_height="56dp"
+        android:text="TextView"
+        tools:layout_editor_absoluteX="11dp"
+        tools:layout_editor_absoluteY="525dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
