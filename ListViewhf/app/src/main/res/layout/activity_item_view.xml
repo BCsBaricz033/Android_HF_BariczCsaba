@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ItemView">
+
+    <ImageView
+        android:id="@+id/image"
+
+        android:layout_width="50dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="85dp"
+        app:layout_constraintEnd_toStartOf="@+id/TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/TextView"
+        android:layout_width="107dp"
+        android:layout_height="25dp"
+        android:gravity="left"
+        android:textFontWeight="@integer/material_motion_duration_medium_1"
+        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/vetel"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/teljes"
+        android:layout_width="107dp"
+        android:layout_height="27dp"
+        app:layout_constraintEnd_toStartOf="@+id/eladas"
+        app:layout_constraintStart_toEndOf="@+id/image"
+        app:layout_constraintTop_toBottomOf="@+id/TextView" />
+
+    <TextView
+        android:id="@+id/veteliAr"
+        android:layout_width="102dp"
+        android:layout_height="27dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/eladas"
+        app:layout_constraintTop_toBottomOf="@+id/eladasiAr"
+        android:gravity="right"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/eladasiAr"
+        android:layout_width="101dp"
+        android:layout_height="25dp"
+        android:layout_weight="1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vetel"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="right"
+        android:textColor="@color/black"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/eladas"
+        android:layout_width="69dp"
+        android:layout_height="27dp"
+        android:layout_weight="1"
+        android:gravity="right"
+        app:layout_constraintEnd_toStartOf="@+id/veteliAr"
+        app:layout_constraintStart_toEndOf="@+id/teljes"
+        app:layout_constraintTop_toBottomOf="@+id/vetel" />
+
+    <TextView
+        android:id="@+id/vetel"
+        android:layout_width="69dp"
+        android:layout_height="25dp"
+        android:gravity="right"
+        app:layout_constraintEnd_toStartOf="@+id/eladasiAr"
+        app:layout_constraintStart_toEndOf="@+id/TextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
