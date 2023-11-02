@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ListViewDeleteTemp(lab5)</string>
+    <string-array name="listItems">
+        <item>Hetfo</item>
+        <item>Kedd</item>
+        <item>Szerda</item>
+        <item>Csütörtök</item>
+        <item>Péntek</item>
+        <item>Szombat</item>
+        <item>Vasárnap</item>
+    </string-array>
+</resources>
