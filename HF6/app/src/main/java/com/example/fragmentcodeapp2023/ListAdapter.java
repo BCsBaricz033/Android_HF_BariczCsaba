@@ -20,23 +20,24 @@ public class ListAdapter extends ArrayAdapter {
     List<Item> list ;
     int  flagImages [];
     LayoutInflater inflater;
+    String [] items;
 
-    public ListAdapter(@NonNull Context context, int[] flags, @NonNull List<Item> objects) {
-        super(context, R.layout.item_view, objects);
-        this.context=context;
-        this.flagImages=flags;
-        this.list=objects;
+    public ListAdapter(@NonNull Context context, String[] items) {
+        super(context, R.layout.item_view, items);
+        this.items=items;
     }
+
+
 
 
     @Override
     public int getCount() {
-        return list.size();
+        return items.length;
     }
 
     @Override
     public Object getItem(int i) {
-        return list.get(i);
+        return items[i];
     }
 
     @Override
@@ -46,7 +47,11 @@ public class ListAdapter extends ArrayAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        //LayoutInflater inflater =context.getLayoutInflater();
+        //View rowView = inflater.inflate(R.layout.list_item, null, true);*/
+        LayoutInflater inflater = LayoutInflater.from(context);
         convertView=inflater.inflate(R.layout.item_view,null);
+        /*
         TextView txtView=(TextView) convertView.findViewById(R.id.TextView);
         TextView teljes=(TextView) convertView.findViewById(R.id.teljes);
         TextView eladas=(TextView) convertView.findViewById(R.id.eladas);
@@ -61,7 +66,8 @@ public class ListAdapter extends ArrayAdapter {
         vetel.setText(item.getVasarol());
         eladasiAr.setText(item.getEladasAr());
         veteliAr.setText(item.getVetelAr());
-        flags.setImageResource(flagImages[position]);
+        flags.setImageResource(flagImages[position]);*/
+
         return convertView;
     }
 }

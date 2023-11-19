@@ -1,6 +1,5 @@
 package com.example.fragmentcodeapp2023;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,12 +26,6 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class Fragment1 extends Fragment {
-    List<Item> list=new ArrayList<Item>(Arrays.asList(new Item("EUR","Euro","4.46 RON","5.56 RON"),
-            new Item("USD","Amerikai dollár","3.91 RON","4.1 RON"),
-            new Item("CHF","Svájci frank","4.23 RON","4.33 RON"),
-            new Item("HUF","Forint","0.0136 RON","0.0146 RON")));
-    ListView listView;
-    int flagImages []={R.drawable.eu,R.drawable.usa,R.drawable.svajc,R.drawable.magyar};
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -78,45 +70,53 @@ public class Fragment1 extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_1, container, false);
         Context context = getActivity().getApplicationContext();
 
-        final String[] mainItems = {"EUR", "USD", "CHF", "HUF"};
-        ListView listView=view.findViewById(R.id.items_list);
-        //ListAdapter adapt = new ListAdapter(context, flagImages, list);
-        ListAdapter adapt = new ListAdapter(context, mainItems);
-        listView.setAdapter(adapt);
+        //final String[] fruits={"Apple", "Mango", "Orange", "Grapes", "Banana"};
+        final String[] items = {"EUR", "USD", "CHF", "HUF"};
+        List<Item> list=new ArrayList<Item>(Arrays.asList(new Item("EUR","Euro","4.46 RON","5.56 RON"),
+                new Item("USD","Amerikai dollár","3.91 RON","4.1 RON"),
+                new Item("CHF","Svájci frank","4.23 RON","4.33 RON"),
+                new Item("HUF","Forint","0.0136 RON","0.0146 RON")));
+        ListView listView;
+        int flagImages []={R.drawable.eu,R.drawable.usa,R.drawable.svajc,R.drawable.magyar};
+        ListView fruitsList = view.findViewById(R.id.item_list);
+        ArrayAdapter<String> arrayAdpt= new ArrayAdapter<String>(context, android.R.layout.simple_list_item_1, items);
+        fruitsList.setAdapter(arrayAdpt);
 
         FragmentManager fm = getParentFragmentManager();
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        fruitsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (fm.findFragmentByTag(FRAG2) != null) {
-                    //TextView selected = getActivity().findViewById(R.id.TextView);
-                    //selected.setText("You have selected " + ((TextView) view).getText().toString());
-
-                    ImageView img = getActivity().findViewById(R.id.image);
-                    img.setImageResource(flagImages[position]);
-
+                if(fm.findFragmentByTag(FRAG2)!=null){
+                    TextView rovidites = getActivity().findViewById(R.id.TextView);
+                    ImageView image=getActivity().findViewById(R.id.image);
                     TextView teljes = getActivity().findViewById(R.id.teljes);
-                    teljes.setText(list.get(position).getPenznem());
-
-                    TextView vetelAr = getActivity().findViewById(R.id.veteliAr);
-                    vetelAr.setText(list.get(position).getVetelAr());
-
-                    TextView vetel = getActivity().findViewById(R.id.vetel);
-                    vetel.setText("Vétel");
-
+                    TextView veteliAr = getActivity().findViewById(R.id.veteliAr);
                     TextView eladasiAr = getActivity().findViewById(R.id.eladasiAr);
-                    eladasiAr.setText(list.get(position).getEladasAr());
-
                     TextView eladas = getActivity().findViewById(R.id.eladas);
-                    eladas.setText("Eladás");
+                    TextView vetel = getActivity().findViewById(R.id.vetel);
+                    rovidites.setText( ((TextView) view).getText().toString());
+                    teljes.setText(list.get(position).getPenznem());
+                    veteliAr.setText(list.get(position).getVetelAr());
+                    eladasiAr.setText(list.get(position).getEladasAr());
+                    eladas.setText(list.get(position).getElad());
+                    vetel.setText(list.get(position).getVasarol());
+                    image.setImageResource(flagImages[position]);
 
-                } else {
-                    Intent intent = new Intent(getActivity().getApplicationContext(), ShowItemActivity.class);
-                    intent.putExtra("item", ((TextView) view).getText().toString());
+                } else{
+                    Intent intent = new Intent(getActivity().getApplicationContext(),  ShowItemActivity.class);
+                    intent.putExtra("rovidites", ((TextView) view).getText().toString());
+                    intent.putExtra("teljes",list.get(position).getPenznem() );
+                    intent.putExtra("veteliAr",list.get(position).getVetelAr() );
+                    intent.putExtra("eladasiAr",list.get(position).getEladasAr() );
+                    intent.putExtra("eladas",list.get(position).getElad() );
+                    intent.putExtra("vetel",list.get(position).getVasarol() );
+                    intent.putExtra("image",flagImages[position]);
                     startActivity(intent);
                 }
             }
@@ -124,5 +124,4 @@ public class Fragment1 extends Fragment {
 
         return view;
     }
-
 }
